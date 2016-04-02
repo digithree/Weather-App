@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Weather App</string>
+
+    <string name="title_weather">Current Weather Stats</string>
+    <string name="field_temperature">Temperature: </string>
+    <string name="field_humidity">Humidity: </string>
+    <string name="field_pressure">Pressure: </string>
+</resources>
