@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private final static String API_KEY = "fa2c429b43f443af6dc8bf796ae2e8db";
 
     public interface ApiService {
-        @GET("data/2.5/weather?APPID="+API_KEY+"&q=equals")
+        @GET("data/2.5/weather?APPID="+API_KEY)
         Call<CurrentWeatherModel> getCurrentWeather(@Query("q") String query);
     }
 
