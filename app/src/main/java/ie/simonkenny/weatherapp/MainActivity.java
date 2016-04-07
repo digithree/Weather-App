@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -58,7 +60,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setupApiService() {
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(interceptor)
+                .build();
+
         Retrofit retrofit = new Retrofit.Builder()
+                .client(client)
                 .baseUrl("http://api.openweathermap.org/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
